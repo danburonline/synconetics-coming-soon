@@ -286,3 +286,122 @@ p {
     font-size: 0.8rem;
   }
 }
+
+/* Tooltips */
+.tooltip-trigger {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--text-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+}
+
+.tooltip-trigger:hover {
+  border-bottom-color: var(--text-primary);
+}
+
+/* Don't override link styling when tooltip trigger is inside a link */
+a .tooltip-trigger,
+a.tooltip-trigger {
+  color: inherit;
+  border-bottom: none;
+}
+
+a .tooltip-trigger:hover,
+a.tooltip-trigger:hover {
+  color: inherit;
+  border-bottom: none;
+}
+
+/* Ensure links inside tooltip triggers keep their styling */
+.tooltip-trigger a,
+.tooltip-trigger .link-highlight {
+  color: var(--link-primary);
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tooltip-trigger a:hover,
+.tooltip-trigger .link-highlight:hover {
+  color: var(--text-primary);
+}
+
+.tooltip {
+  position: fixed;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  max-width: 320px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.tooltip.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--bg-secondary);
+}
+
+.tooltip.tooltip-below::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: var(--bg-secondary);
+}
+
+.tooltip-text {
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--link-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tooltip-link:hover {
+  color: var(--text-primary);
+}
+
+/* Responsive tooltips */
+@media (max-width: 768px) {
+  .tooltip {
+    max-width: 280px;
+    font-size: 0.75rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tooltip {
+    max-width: 240px;
+    font-size: 0.7rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .tooltip-trigger {
+    border-bottom-width: 1px;
+  }
+}
