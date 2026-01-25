@@ -22,7 +22,8 @@ html {
 }
 
 body {
-  font-family: 'SF Mono', 'Fira Code', 'Monaco', 'Inconsolata', 'Fira Mono',
+  font-family:
+    'SF Mono', 'Fira Code', 'Monaco', 'Inconsolata', 'Fira Mono',
     'Droid Sans Mono', 'Source Code Pro', monospace;
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -66,6 +67,14 @@ p {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--link-primary);
+}
+
+.section-icon {
+  flex-shrink: 0;
 }
 
 .section-box {
@@ -131,6 +140,7 @@ p {
   margin: 0 auto 0.5rem;
   overflow: hidden;
   border: 1px solid var(--border);
+  border-radius: 4px;
 }
 
 .team-avatar img {
@@ -194,34 +204,307 @@ p {
   opacity: 0.7;
 }
 
-/* Call to Action */
-.cta {
-  margin-top: 2rem;
-  padding: 1.25rem;
+/* Partners & Affiliations Section */
+.partners-intro {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  min-height: 80px;
+}
+
+.partner-logo:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(244, 162, 97, 0.5);
+  transform: translateY(-2px);
+}
+
+.partner-logo img {
+  max-width: 100%;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) invert(1) brightness(0.8);
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.partner-logo:hover img {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 1;
+}
+
+/* Intro Section */
+.intro {
+  margin-bottom: 2rem;
+}
+
+.intro p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* Hero Section */
+.hero {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--link-primary);
+}
+
+.hero .section-title {
+  margin-top: 0;
+}
+
+.vision {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.vision-tagline {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.hero .figure {
+  margin: 0;
+}
+
+.figure img {
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.figure img:hover {
+  opacity: 0.9;
+}
+
+/* Lists for New Sections */
+.problem-list,
+.principle-list,
+.foundation-list,
+.fro-list,
+.impact-list {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+  color: var(--text-primary);
+}
+
+.problem-list li {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.problem-list {
+  padding-left: 0;
+}
+
+.problem-icon {
+  color: var(--link-primary);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.problem-list li strong,
+.problem-list li strong .tooltip-trigger {
+  color: var(--link-primary);
+}
+
+.problem-list li strong .tooltip-trigger:hover {
+  color: var(--text-primary);
+}
+
+.foundation-list li,
+.fro-list li,
+.impact-list li {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.principle-list li {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  padding-left: 0.25rem;
+}
+
+.problem-list li strong,
+.principle-list li strong,
+.foundation-list li strong,
+.fro-list li strong,
+.impact-list li strong {
+  color: var(--link-primary);
+}
+
+.foundation-list a {
+  color: var(--link-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.foundation-list a:hover {
+  color: var(--text-primary);
+}
+
+/* Roadmap Table */
+.roadmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.8125rem;
+}
+
+.roadmap-table th,
+.roadmap-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.roadmap-table th {
+  font-weight: 600;
+  color: var(--link-primary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.roadmap-table td {
+  color: var(--text-primary);
+}
+
+.roadmap-table td:first-child {
+  font-weight: 600;
+  color: var(--link-primary);
+  width: 3rem;
+}
+
+.roadmap-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.roadmap-table tbody tr:hover {
+  background-color: rgba(244, 162, 97, 0.05);
+}
+
+/* Funding Highlight */
+.funding-highlight {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  padding: 0.75rem 1rem;
+  background-color: rgba(244, 162, 97, 0.1);
+  border-left: 3px solid var(--link-primary);
+  font-size: 0.9rem;
+}
+
+.funding-highlight strong {
+  color: var(--link-primary);
+}
+
+/* Call to Action */
+.cta {
+  margin-top: 2.5rem;
+  padding: 1.75rem;
+  background-color: rgba(244, 162, 97, 0.1);
+  border: 2px solid var(--link-primary);
+  border-radius: 4px;
+}
+
+.cta-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--link-primary);
 }
 
 .cta p {
-  margin-bottom: 0;
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--link-primary);
+  line-height: 1.7;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--link-primary);
+  color: var(--bg-primary);
+  text-decoration: none;
+  font-weight: 600;
   font-size: 0.875rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Contact */
-.contact {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+.cta-button:hover {
+  background-color: #e09250;
+  transform: translateY(-1px);
 }
 
-.contact a {
-  color: var(--text-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.cta-button svg {
+  flex-shrink: 0;
 }
 
-.contact a:hover {
-  color: #ffffff;
+.cta .impact-list {
+  margin-bottom: 1.25rem;
+}
+
+.cta-funding {
+  padding: 1rem;
+  background-color: rgba(244, 162, 97, 0.08);
+  border-left: 3px solid var(--link-primary);
+  margin-bottom: 1rem;
+}
+
+.cta-funding strong {
+  color: var(--link-primary);
+}
+
+.cta-action {
+  margin-bottom: 0;
+  font-weight: 500;
 }
 
 /* Responsive - Tablet */
@@ -255,6 +538,69 @@ p {
   .team-role {
     font-size: 0.65rem;
   }
+
+  /* Partners responsive - Tablet */
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .partner-logo {
+    padding: 0.75rem;
+    min-height: 70px;
+  }
+
+  .partner-logo img {
+    max-height: 40px;
+  }
+
+  .partners-intro {
+    font-size: 0.8125rem;
+  }
+
+  /* Hero responsive - Tablet */
+  .hero {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .vision {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .vision-tagline {
+    font-size: 0.85rem;
+  }
+
+  /* Roadmap responsive - Tablet */
+  .roadmap-table {
+    font-size: 0.75rem;
+  }
+
+  .roadmap-table th,
+  .roadmap-table td {
+    padding: 0.625rem;
+  }
+
+  /* Lists responsive - Tablet */
+  .problem-list li,
+  .principle-list li,
+  .foundation-list li,
+  .fro-list li,
+  .impact-list li {
+    font-size: 0.8125rem;
+  }
+
+  .problem-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .section-icon {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 /* Responsive - Mobile */
@@ -276,20 +622,45 @@ p {
   }
 
   .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .team-member {
+    text-align: center;
   }
 
   .team-avatar {
-    margin-bottom: 0.5rem;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 0.75rem;
   }
 
   .team-name {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
   }
 
   .team-role {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  /* Partners responsive - Mobile */
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .partner-logo {
+    padding: 0.625rem;
+    min-height: 60px;
+  }
+
+  .partner-logo img {
+    max-height: 35px;
+  }
+
+  .partners-intro {
+    font-size: 0.75rem;
   }
 
   .cta {
@@ -298,20 +669,149 @@ p {
 
   .cta p {
     font-size: 0.8rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
+
+  .cta-button {
+    font-size: 0.8rem;
+    padding: 0.625rem 1rem;
+  }
+
+  /* Hero responsive - Mobile */
+  .hero {
+    padding: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .vision {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .vision-tagline {
+    font-size: 0.75rem;
+  }
+
+  /* Roadmap responsive - Mobile */
+  .roadmap-table {
+    font-size: 0.7rem;
+  }
+
+  .roadmap-table th,
+  .roadmap-table td {
+    padding: 0.5rem;
+  }
+
+  .roadmap-table th {
+    font-size: 0.65rem;
+  }
+
+  /* Lists responsive - Mobile */
+  .problem-list li,
+  .principle-list li,
+  .foundation-list li,
+  .fro-list li,
+  .impact-list li {
+    font-size: 0.75rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .problem-list li {
+    gap: 0.5rem;
+  }
+
+  .problem-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .funding-highlight {
+    font-size: 0.8rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .cta-title {
+    font-size: 0.9rem;
+  }
+
+  .cta-funding {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .section-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 2rem;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+  color: var(--link-primary);
 }
 
 /* Tooltips */
 .tooltip-trigger {
   position: relative;
   cursor: help;
-  border-bottom: 1px dotted var(--text-secondary);
+  border-bottom: 1px dotted rgba(244, 162, 97, 0.5);
   color: var(--text-primary);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .tooltip-trigger:hover {
-  border-bottom-color: var(--text-primary);
+  border-bottom-color: var(--link-primary);
+  color: var(--link-primary);
 }
 
 /* Don't override link styling when tooltip trigger is inside a link */
@@ -443,10 +943,12 @@ a.tooltip-trigger:hover {
   font-size: 1.25rem;
   font-weight: 300;
   color: var(--text-secondary);
-  transition: transform 0.3s ease, color 0.2s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.2s ease;
 }
 
-.faq-question[aria-expanded="true"] .faq-icon {
+.faq-question[aria-expanded='true'] .faq-icon {
   transform: rotate(45deg);
   color: var(--link-primary);
 }
@@ -454,7 +956,9 @@ a.tooltip-trigger:hover {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
   padding: 0;
 }
 
@@ -498,7 +1002,7 @@ a.tooltip-trigger:hover {
     font-size: 0.7rem;
     padding: 0.5rem 0.75rem;
   }
-  
+
   .tooltip-trigger {
     border-bottom-width: 1px;
   }

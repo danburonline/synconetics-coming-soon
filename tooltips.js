@@ -121,6 +121,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Lightbox functionality
+  const lightboxImage = document.querySelector('.figure img');
+  if (lightboxImage) {
+    // Create lightbox elements
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img src="${lightboxImage.src}" alt="${lightboxImage.alt}" />
+    `;
+    document.body.appendChild(lightbox);
+
+    // Make the original image clickable
+    lightboxImage.style.cursor = 'zoom-in';
+    
+    // Open lightbox on image click
+    lightboxImage.addEventListener('click', function() {
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Close lightbox functions
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on overlay click
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+        closeLightbox();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
+
   // FAQ Accordion functionality
   const faqQuestions = document.querySelectorAll('.faq-question');
   
