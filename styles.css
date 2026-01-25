@@ -180,6 +180,20 @@ p {
   color: var(--text-secondary);
 }
 
+/* Team Hiring Note */
+.team-hiring-note {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.team-hiring-cta {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
 /* Call to Action */
 .cta {
   margin-top: 2rem;
@@ -262,7 +276,7 @@ p {
   }
 
   .team-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.4rem;
   }
 
@@ -385,12 +399,96 @@ a.tooltip-trigger:hover {
   color: var(--text-primary);
 }
 
+/* FAQ Section */
+.faq-list {
+  margin-top: 1rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--link-primary);
+}
+
+.faq-question:focus {
+  outline: none;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+  color: var(--link-primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.faq-answer.active {
+  max-height: 1000px;
+  padding-bottom: 1rem;
+}
+
+.faq-answer p {
+  margin-bottom: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
 /* Responsive tooltips */
 @media (max-width: 768px) {
   .tooltip {
     max-width: 280px;
     font-size: 0.75rem;
     padding: 0.625rem 0.875rem;
+  }
+
+  .faq-question {
+    font-size: 0.8125rem;
+    padding: 0.875rem 0;
+  }
+
+  .faq-answer p {
+    font-size: 0.75rem;
   }
 }
 
@@ -403,5 +501,19 @@ a.tooltip-trigger:hover {
   
   .tooltip-trigger {
     border-bottom-width: 1px;
+  }
+
+  .faq-question {
+    font-size: 0.75rem;
+    padding: 0.75rem 0;
+  }
+
+  .faq-icon {
+    font-size: 1.125rem;
+    margin-left: 0.75rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.7rem;
   }
 }
