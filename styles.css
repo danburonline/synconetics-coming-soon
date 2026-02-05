@@ -8,12 +8,12 @@
 }
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --text-primary: #d4d4d4;
-  --text-secondary: #737373;
-  --border: #1a1a1a;
-  --link-primary: #f4a261;
+  --bg-primary: #f6f3ef;
+  --bg-secondary: #fbf9f6;
+  --text-primary: #1f1c18;
+  --text-secondary: #5f5a53;
+  --border: #e4ded6;
+  --link-primary: #d1662f;
 }
 
 /* Base Styles */
@@ -22,9 +22,8 @@ html {
 }
 
 body {
-  font-family:
-    'SF Mono', 'Fira Code', 'Monaco', 'Inconsolata', 'Fira Mono',
-    'Droid Sans Mono', 'Source Code Pro', monospace;
+  font-family: 'Inter', 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', 'Noto Sans',
+    'Liberation Sans', Arial, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.75;
@@ -224,7 +223,7 @@ p {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border);
   border-radius: 4px;
   transition: all 0.2s ease;
@@ -232,8 +231,8 @@ p {
 }
 
 .partner-logo:hover {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-color: rgba(244, 162, 97, 0.5);
+  background-color: #ffffff;
+  border-color: rgba(209, 102, 47, 0.35);
   transform: translateY(-2px);
 }
 
@@ -243,7 +242,7 @@ p {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%) invert(1) brightness(0.8);
+  filter: grayscale(100%) brightness(0.7);
   opacity: 0.7;
   transition: all 0.2s ease;
 }
@@ -422,7 +421,7 @@ p {
 }
 
 .roadmap-table tbody tr:hover {
-  background-color: rgba(244, 162, 97, 0.05);
+  background-color: rgba(209, 102, 47, 0.08);
 }
 
 /* Funding Highlight */
@@ -430,7 +429,7 @@ p {
   margin-top: 1.25rem;
   margin-bottom: 0;
   padding: 0.75rem 1rem;
-  background-color: rgba(244, 162, 97, 0.1);
+  background-color: rgba(209, 102, 47, 0.08);
   border-left: 3px solid var(--link-primary);
   font-size: 0.9rem;
 }
@@ -443,7 +442,7 @@ p {
 .cta {
   margin-top: 2.5rem;
   padding: 1.75rem;
-  background-color: rgba(244, 162, 97, 0.1);
+  background-color: rgba(209, 102, 47, 0.08);
   border: 2px solid var(--link-primary);
   border-radius: 4px;
 }
@@ -460,7 +459,7 @@ p {
 .cta p {
   margin-bottom: 1.25rem;
   font-size: 0.9375rem;
-  color: var(--link-primary);
+  color: var(--text-primary);
   line-height: 1.7;
 }
 
@@ -470,7 +469,7 @@ p {
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   background-color: var(--link-primary);
-  color: var(--bg-primary);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
@@ -479,7 +478,7 @@ p {
 }
 
 .cta-button:hover {
-  background-color: #e09250;
+  background-color: #bf5b28;
   transform: translateY(-1px);
 }
 
@@ -493,7 +492,7 @@ p {
 
 .cta-funding {
   padding: 1rem;
-  background-color: rgba(244, 162, 97, 0.08);
+  background-color: rgba(209, 102, 47, 0.06);
   border-left: 3px solid var(--link-primary);
   margin-bottom: 1rem;
 }
@@ -753,7 +752,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -783,7 +782,7 @@ p {
   right: 1.5rem;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: #f6f3ef;
   font-size: 2rem;
   cursor: pointer;
   width: 44px;
@@ -804,7 +803,7 @@ p {
 .tooltip-trigger {
   position: relative;
   cursor: help;
-  border-bottom: 1px dotted rgba(244, 162, 97, 0.5);
+  border-bottom: 1px dotted rgba(209, 102, 47, 0.4);
   color: var(--text-primary);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
@@ -847,7 +846,7 @@ a.tooltip-trigger:hover {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--text-primary);
@@ -943,9 +942,7 @@ a.tooltip-trigger:hover {
   font-size: 1.25rem;
   font-weight: 300;
   color: var(--text-secondary);
-  transition:
-    transform 0.3s ease,
-    color 0.2s ease;
+  transition: transform 0.3s ease, color 0.2s ease;
 }
 
 .faq-question[aria-expanded='true'] .faq-icon {
@@ -956,9 +953,7 @@ a.tooltip-trigger:hover {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition:
-    max-height 0.3s ease,
-    padding 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
 }
 
