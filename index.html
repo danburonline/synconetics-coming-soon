@@ -9,6 +9,9 @@
     <title>Synconetics Organisation</title>
 
     <link href="styles.css" rel="stylesheet">
+    <script src="demo-shared.js" defer></script>
+    <script src="neuron-sim.js" defer></script>
+    <script src="ocm-visualizer.js" defer></script>
     <script src="tooltips.js" defer></script>
   </head>
   <body>
@@ -201,7 +204,202 @@
           </p>
         </section>
 
-        <section class="section section-box">
+        <section class="section demo-section" id="scaffold-demo">
+          <div class="demo-wrapper" id="neuron-demo-container">
+            <h2 class="section-title">
+              <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+              Research Demo
+            </h2>
+            <div class="demo-intro">
+              <h3 class="demo-title">Predictive Neural Scaffold Design</h3>
+              <p>
+                A deep learning approach to engineering synthetic brains. A predictive model
+                generates scaffold architectures that guide biological neural growth toward
+                target morphologies. The same hidden state-space representations that enable the
+                AI to design scaffolds for growing biological neural tissue can be transferred to
+                <span class="tooltip-trigger" data-tooltip="Biohybrid neuromorphics combine living biological neural components with engineered electronic or photonic elements, creating hybrid systems that leverage the computational properties of biological neurons while adding synthetic resilience and controllability.">biohybrid</span>
+                and
+                <span class="tooltip-trigger" data-tooltip="Biomimetic neuromorphics are fully synthetic systems engineered to replicate the physical dynamics of biological neural tissue, including dendritic computation, synaptic plasticity, and metabolic signalling, without any biological components.">biomimetic neuromorphic substrates</span>.
+              </p>
+              <p>
+                Select an algorithm below and observe how different computational approaches
+                solve the scaffold optimisation problem, from stochastic heuristics to deep
+                learning models that learn the generative rules of neural architecture.
+              </p>
+            </div>
+            <div class="demo-stats-grid">
+              <div class="demo-stat-card">
+                <span class="demo-stat-value" id="neuron-stat-iterations">0</span>
+                <span class="demo-stat-label">Iterations</span>
+              </div>
+              <div class="demo-stat-card">
+                <span class="demo-stat-value" id="neuron-stat-scaffolds">0</span>
+                <span class="demo-stat-label">Scaffolds</span>
+              </div>
+              <div class="demo-stat-card">
+                <span class="demo-stat-value" id="neuron-stat-compute">0 ms</span>
+                <span class="demo-stat-label">Compute</span>
+              </div>
+              <div class="demo-stat-card">
+                <span class="demo-stat-value" id="neuron-stat-fidelity">0%</span>
+                <span class="demo-stat-label">Fidelity</span>
+              </div>
+            </div>
+            <div class="demo-canvas-pair">
+              <div class="demo-canvas-col">
+                <div class="demo-canvas-wrap">
+                  <canvas id="neuron-canvas-left" width="440" height="400"></canvas>
+                </div>
+              </div>
+              <div class="demo-canvas-col">
+                <div class="demo-canvas-wrap demo-canvas-relative">
+                  <canvas id="neuron-canvas-right" width="440" height="400"></canvas>
+                  <span id="neuron-badge-phase" class="demo-overlay-label">Design</span>
+                  <span id="neuron-badge-algo" class="demo-overlay-label demo-overlay-right">Stochastic Refinement</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-algo-cards">
+              <div class="demo-algo-card active" data-algo="heuristic">
+                <strong>Stochastic Refinement</strong>
+                <span>Stochastic sampling to fill target architecture</span>
+              </div>
+              <div class="demo-algo-card" data-algo="genetic">
+                <strong>Global Evolution</strong>
+                <span>Population-based optimisation of scaffold placement</span>
+              </div>
+              <div class="demo-algo-card" data-algo="diffusion">
+                <strong>Denoising Diffusion</strong>
+                <span>Iterative denoising to resolve scaffold structure</span>
+              </div>
+              <div class="demo-algo-card demo-algo-primary" data-algo="hybrid">
+                <strong>Guided Scaffolding</strong>
+                <span>Agent-based scaffolding with local optimisation</span>
+              </div>
+            </div>
+            <div class="demo-controls-panel">
+              <div class="demo-btn-group">
+                <button id="neuron-btn-target" class="demo-btn demo-btn-secondary">New Target</button>
+                <button id="neuron-btn-run" class="demo-btn demo-btn-primary">Run</button>
+                <button id="neuron-btn-grow" class="demo-btn demo-btn-secondary" disabled>Grow</button>
+                <button id="neuron-btn-reset" class="demo-btn demo-btn-secondary">Reset</button>
+              </div>
+            </div>
+          </div>
+          <div class="section-impact">
+            <h3>Broader Applications</h3>
+            <p>Predictive growth algorithms developed for synthetic brain engineering have wide-reaching implications across adjacent fields where controlled neural architecture construction is critical.</p>
+            <ul class="impact-list">
+              <li>Neuroprosthetics and brain-computer interfaces</li>
+              <li>Gradual brain replacement strategies</li>
+              <li>Neuromorphic chip design and layout</li>
+              <li>Wetware computing architectures</li>
+              <li>Computational neuroscience research</li>
+              <li>Anaesthesia research and consciousness monitoring</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section demo-section" id="ocm-demo">
+          <div class="demo-wrapper" id="ocm-demo-container">
+            <h2 class="section-title">
+              <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12h8"></path>
+                <path d="M12 8v8"></path>
+              </svg>
+              Theoretical Framework
+            </h2>
+            <div class="demo-intro">
+              <h3 class="demo-title">Process World-Line Dynamics</h3>
+              <p>
+                <span class="tooltip-trigger" data-link="https://danburonline.substack.com/p/death-is-an-engineering-challenge#nomenclature-and-definitions" data-tooltip="Operational Consciousness Mechanics (OCM) is a mathematical framework developed by the Synconetics Organisation for modelling the physical dynamics that constitute conscious experience. It provides quantitative criteria for evaluating whether substrate transitions preserve the process-world-line.">Operational Consciousness Mechanics</span>
+                provides our mathematical framework for understanding why continuous, gradual
+                substrate transitions preserve consciousness while discontinuous approaches fail.
+                Model A represents a single deterministic trajectory: one perturbation and the
+                process-world-line collapses irreversibly. Model B demonstrates ensemble dynamics
+                with attractor states, where the system self-corrects around its operational basin,
+                maintaining continuity through adaptive resilience.
+              </p>
+              <p>
+                The theoretical foundation for why gradual synthetic neural replacement works:
+                consciousness is not a fragile thread but a dynamical attractor that can be
+                sustained across substrate transitions, provided the transition respects the
+                system's operational envelope.
+              </p>
+            </div>
+            <div class="demo-header-bar">
+              <div class="demo-scenario-btns">
+                <button id="ocm-btn-control" class="demo-btn demo-btn-scenario active">Control</button>
+                <button id="ocm-btn-adaptive" class="demo-btn demo-btn-scenario">Adaptive</button>
+                <button id="ocm-btn-catastrophic" class="demo-btn demo-btn-scenario">Catastrophic</button>
+              </div>
+              <span class="demo-key-hint">Press 1, 2, or 3</span>
+            </div>
+            <div class="demo-canvas-single">
+              <div class="demo-canvas-wrap demo-canvas-wide demo-canvas-relative">
+                <canvas id="ocm-canvas" width="800" height="500"></canvas>
+                <div class="ocm-label ocm-label-a">
+                  <strong>Model A</strong>: Deterministic<br>
+                  Status: <span id="ocm-status-a">NOMINAL</span>
+                </div>
+                <div class="ocm-label ocm-label-b">
+                  <strong>Model B</strong>: Ensemble<br>
+                  Status: <span id="ocm-status-b">STABLE</span><br>
+                  Entropy: <span id="ocm-entropy-b">0.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-stability-container">
+              <span class="demo-stability-label">Stability</span>
+              <div class="demo-stability-bar">
+                <div class="demo-stability-zone demo-stability-green"></div>
+                <div class="demo-stability-zone demo-stability-amber"></div>
+                <div class="demo-stability-zone demo-stability-red"></div>
+                <div id="ocm-stability-dot" class="demo-stability-dot" style="left:0%"></div>
+                <div id="ocm-stability-line" class="demo-stability-line" style="left:0%"></div>
+              </div>
+            </div>
+            <div class="demo-analysis-grid">
+              <div class="demo-analysis-panel">
+                <h4>Model A: Single Deterministic Trajectory</h4>
+                <p>
+                  A single particle follows one deterministic path. When it encounters
+                  an obstacle (analogous to brain trauma, neurodegeneration, or substrate failure),
+                  the trajectory terminates with no recovery mechanism, and the process-world-line
+                  is permanently severed. This models consciousness on a single biological substrate.
+                </p>
+              </div>
+              <div class="demo-analysis-panel">
+                <h4>Model B: Ensemble Process Dynamics</h4>
+                <p>
+                  A cloud of 350 particles moves as an ensemble, held together by attractor
+                  dynamics. When obstacles appear, individual trajectories deflect, but the ensemble's
+                  centre of mass self-corrects. The system remains within its operational basin.
+                  This models consciousness sustained across a distributed synthetic substrate.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="section-impact">
+            <h3>Why This Research Matters</h3>
+            <p>The formal study of observer-coupled morphology carries implications well beyond our core programme. Understanding how substrate integrity relates to continuous observer identity opens new avenues across multiple disciplines.</p>
+            <ul class="impact-list">
+              <li>Consciousness science and the binding problem</li>
+              <li>Artificial consciousness and machine sentience</li>
+              <li>Surgical feasibility for substrate-level interventions</li>
+              <li>Neuroplasticity planning and rehabilitation</li>
+              <li>Tumour resection planning and preservation of function</li>
+              <li>Formal criteria for identity-preserving neural repair</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section section-box section-team-spaced">
           <h2 class="section-title">
             <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -219,7 +417,7 @@
               <p class="team-name">
                 <a href="https://www.linkedin.com/in/danburonline/" target="_blank" rel="noopener noreferrer">Daniel Burger, MSc</a>
               </p>
-              <p class="team-role">Director & Chief Scientist</p>
+              <p class="team-role">President & Chief Scientist</p>
             </div>
             <div class="team-member">
               <div class="team-avatar">
@@ -228,7 +426,7 @@
               <p class="team-name">
                 <a href="https://www.bc2ac.t.u-tokyo.ac.jp/" target="_blank" rel="noopener noreferrer">Prof. Masataka Watanabe</a>
               </p>
-              <p class="team-role">Chief Scientist</p>
+              <p class="team-role">Chief Senior Scientist</p>
             </div>
             <div class="team-member">
               <div class="team-avatar">
@@ -449,6 +647,13 @@
           <span class="tooltip-trigger" data-tooltip="Donations, grants, or investments made to advance research for the public good rather than commercial return. This type of funding is essential for foundational research with long time horizons.">philanthropic research funding</span>
           to advance this work. If you are interested in supporting the
           programme, please get in touch.
+        </p>
+        <p class="cta-sare">
+          Synconetics is the first research organisation to adopt the
+          <a href="public/SARE-framework.pdf" target="_blank"><strong>SARE (Simple Agreement for Research Equity)</strong></a>
+          as its primary funding instrument. The SARE gives philanthropic funders a contractual
+          right to equity in future commercial spin-outs, bridging open science and venture creation.
+          <a href="public/SARE-framework.pdf" target="_blank">Read the full framework</a>.
         </p>
         <a class="cta-button" href="mailto:contact@synconetics.org">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
