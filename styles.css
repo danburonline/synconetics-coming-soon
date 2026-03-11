@@ -522,6 +522,13 @@ p {
   text-decoration: underline;
 }
 
+.demo-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 /* ================================================
    Interactive Demo Sections
    ================================================ */

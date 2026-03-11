@@ -259,12 +259,12 @@
                 <div class="demo-canvas-wrap demo-canvas-relative">
                   <canvas id="neuron-canvas-right" width="440" height="400"></canvas>
                   <span id="neuron-badge-phase" class="demo-overlay-label">Design</span>
-                  <span id="neuron-badge-algo" class="demo-overlay-label demo-overlay-right">Stochastic Refinement</span>
+                  <span id="neuron-badge-algo" class="demo-overlay-label demo-overlay-right">Guided Scaffolding</span>
                 </div>
               </div>
             </div>
             <div class="demo-algo-cards">
-              <div class="demo-algo-card active" data-algo="heuristic">
+              <div class="demo-algo-card" data-algo="heuristic">
                 <strong>Stochastic Refinement</strong>
                 <span>Stochastic sampling to fill target architecture</span>
               </div>
@@ -276,7 +276,7 @@
                 <strong>Denoising Diffusion</strong>
                 <span>Iterative denoising to resolve scaffold structure</span>
               </div>
-              <div class="demo-algo-card demo-algo-primary" data-algo="hybrid">
+              <div class="demo-algo-card demo-algo-primary active" data-algo="hybrid">
                 <strong>Guided Scaffolding</strong>
                 <span>Agent-based scaffolding with local optimisation</span>
               </div>
@@ -303,6 +303,8 @@
             </ul>
           </div>
         </section>
+
+        <hr class="demo-divider">
 
         <section class="section demo-section" id="ocm-demo">
           <div class="demo-wrapper" id="ocm-demo-container">
