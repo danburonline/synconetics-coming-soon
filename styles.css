@@ -312,7 +312,6 @@ p {
 .problem-list,
 .principle-list,
 .foundation-list,
-.fro-list,
 .impact-list {
   margin: 1rem 0;
   padding-left: 1.25rem;
@@ -349,7 +348,6 @@ p {
 }
 
 .foundation-list li,
-.fro-list li,
 .impact-list li {
   margin-bottom: 0.75rem;
   font-size: 0.875rem;
@@ -366,7 +364,6 @@ p {
 .problem-list li strong,
 .principle-list li strong,
 .foundation-list li strong,
-.fro-list li strong,
 .impact-list li strong {
   color: var(--link-primary);
 }
@@ -1055,7 +1052,6 @@ p {
   .problem-list li,
   .principle-list li,
   .foundation-list li,
-  .fro-list li,
   .impact-list li {
     font-size: 0.8125rem;
   }
@@ -1204,7 +1200,6 @@ p {
   .problem-list li,
   .principle-list li,
   .foundation-list li,
-  .fro-list li,
   .impact-list li {
     font-size: 0.75rem;
     margin-bottom: 0.625rem;
