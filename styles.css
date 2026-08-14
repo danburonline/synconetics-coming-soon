@@ -523,6 +523,41 @@ p {
   text-decoration: underline;
 }
 
+/* Site Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.site-footer p {
+  margin-bottom: 0.15rem;
+  color: var(--text-secondary);
+}
+
+.site-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.footer-uid a {
+  color: var(--link-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-uid a:hover {
+  color: var(--text-primary);
+}
+
 .demo-divider {
   border: none;
   border-top: 1px solid var(--border);
