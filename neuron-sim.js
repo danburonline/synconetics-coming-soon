@@ -485,7 +485,7 @@ var hybrid = new HybridArchitect();
 var activeAlgoName = 'hybrid';
 var algoMap = { heuristic: heuristic, genetic: genetic, diffusion: diffusion, hybrid: hybrid };
 var algoCost = { heuristic: 5, genetic: 150, diffusion: 60, hybrid: 15 };
-var algoLabels = { heuristic: 'Stochastic Refinement', genetic: 'Global Evolution', diffusion: 'Denoising Diffusion', hybrid: 'Guided Scaffolding' };
+var algoLabels = { heuristic: 'Stochastic Refinement', genetic: 'Evolutionary Search', diffusion: 'Geometry Matching', hybrid: 'Guided Scaffolding' };
 
 var phase = 'design';
 var isRunning = false;
@@ -553,7 +553,7 @@ function drawLeftPanel() {
   var ctx = leftCanvas.getContext('2d');
   if (!ctx) return;
 
-  ctx.fillStyle = COLORS.bgPrimary;
+  ctx.fillStyle = COLORS.bgSecondary;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   var tree = morphTree;
@@ -577,10 +577,10 @@ function drawLeftPanel() {
   }
 
   ctx.fillStyle = COLORS.textSecondary;
-  ctx.font = 'italic 10px sans-serif';
+  ctx.font = '11px ' + CANVAS_FONT;
   ctx.textAlign = 'center';
-  ctx.fillText('Target Morphology (Simplified Model)', WIDTH / 2, HEIGHT - 40);
-  ctx.fillText('* Real biological growth is more chaotic', WIDTH / 2, HEIGHT - 25);
+  ctx.fillText('Illustrative target geometry', WIDTH / 2, HEIGHT - 40);
+  ctx.fillText('Not a biological growth model', WIDTH / 2, HEIGHT - 25);
   ctx.textAlign = 'left';
 }
 
@@ -589,7 +589,7 @@ function drawRightPanel() {
   var ctx = rightCanvas.getContext('2d');
   if (!ctx) return;
 
-  ctx.fillStyle = COLORS.bgPrimary;
+  ctx.fillStyle = COLORS.bgSecondary;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   if (phase !== 'clean') {
@@ -799,8 +799,10 @@ function wireEvents() {
       computeCost = 0;
       for (var j = 0; j < algoCards.length; j++) {
         algoCards[j].classList.remove('active');
+        algoCards[j].setAttribute('aria-pressed', 'false');
       }
       this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
       if (badgeAlgo) badgeAlgo.textContent = algoLabels[activeAlgoName];
       updateStats();
       drawRightPanel();

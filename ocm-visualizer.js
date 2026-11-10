@@ -94,6 +94,9 @@
     }
 
     function setActiveScenarioButton(mode) {
+      btnControl.setAttribute('aria-pressed', String(mode === 'ideal'));
+      btnAdaptive.setAttribute('aria-pressed', String(mode === 'adaptive'));
+      btnCatastrophic.setAttribute('aria-pressed', String(mode === 'catastrophic'));
       btnControl.classList.remove('active');
       btnAdaptive.classList.remove('active');
       btnCatastrophic.classList.remove('active');
@@ -302,7 +305,7 @@
     function render() {
       var state = simState;
 
-      ctx.fillStyle = COLORS.bgPrimary;
+      ctx.fillStyle = COLORS.bgSecondary;
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.strokeStyle = COLORS.gridLine;
@@ -320,8 +323,8 @@
       }
       ctx.stroke();
 
-      ctx.strokeStyle = COLORS.textPrimary;
-      ctx.lineWidth = 2;
+      ctx.strokeStyle = COLORS.border;
+      ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, CANVAS_HEIGHT / 2);
       ctx.lineTo(CANVAS_WIDTH, CANVAS_HEIGHT / 2);
@@ -346,7 +349,7 @@
 
       for (var i = 0; i < state.obstacles.length; i++) {
         var obs = state.obstacles[i];
-        ctx.fillStyle = COLORS.textPrimary;
+        ctx.fillStyle = COLORS.guideSlateDark;
         ctx.fillRect(obs.x, obs.y, obs.w, obs.h);
       }
 
@@ -381,7 +384,7 @@
           ctx.beginPath();
           var deviationTrail = dist({ x: p.x, y: p.y }, { x: p.x, y: TARGET_Y_B });
           var isOutTrail = deviationTrail > safeZoneWidth;
-          ctx.strokeStyle = isOutTrail ? 'rgba(220, 38, 38, 0.3)' : COLORS.ensemblePurpleLight;
+          ctx.strokeStyle = isOutTrail ? COLORS.hazardTrail : COLORS.ensemblePurpleLight;
           ctx.lineWidth = 1;
           ctx.moveTo(p.history[0].x, p.history[0].y);
           for (var h = 0; h < p.history.length; h++) {
